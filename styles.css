@@ -2,7 +2,15 @@ html {
   width: 100vw;
   box-sizing: border-box;
   padding: 0px;
-  /*display: flex;*/
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  padding-top: 3vh;
+  text-align: center;
+  width: 100vw;
+  margin top: 0px;
+  height: 10vh;
 }
 
 .top-box {
@@ -12,6 +20,7 @@ html {
     align-items: stretch;
     width: 100vw;
     margin: 0px;
+    height: 60vh;
 
 }
 
@@ -21,10 +30,14 @@ h1 {
 
 .title-idea {
   color: #00A79D;
+  font-family: 'Roboto Slab', serif;
+  font-size: 34px;
 }
 
 .title-box {
   color: #6D6E71;
+  font-family: 'Roboto Slab', serif;
+  font-size: 34px;
 }
 
 .input-field {
@@ -32,10 +45,18 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  height: 45vh;
+  margin-bottom: 2vh;
 }
 
 input {
   width: 90vw;
+  height: 4vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.idea-body {
+  height: 20vh;
 }
 
 .save-button {
@@ -45,11 +66,43 @@ input {
 .save-button {
   color: #FFFFFF;
   background-color: #00A79D;
+  height: 6vh;
 
 }
 
+.search-input {
+  width: 100vw;
+  text-align: center;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 
-.quality-btns {
-  height: 4em;
-  width:  4em;
+}
+
+.idea-card-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.idea-card {
+  width: 90vw;
+  border-bottom: 1px solid #D1D3D4;
+  line-height: 120%;
+}
+
+.card-title-box {
+  display: flex;
+  /*align-content: space-between;*/ /* NOTE: this doesn't work and I don't know why.  I expect it to put the empty white space between the title and the button. */
+  font-size: 12px;
+}
+
+.quality-box {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.quality-btns, .delete-btn {
+  height: 4vh;
+  width:  10vw;
 }
