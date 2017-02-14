@@ -57,6 +57,7 @@ input {
 
 .idea-body {
   height: 20vh;
+  display:
 }
 
 .save-button {
@@ -93,16 +94,32 @@ input {
 
 .card-title-box {
   display: flex;
-  /*align-content: space-between;*/ /* NOTE: this doesn't work and I don't know why.  I expect it to put the empty white space between the title and the button. */
+  justify-content: space-between;
+  align-content: center;
   font-size: 12px;
 }
 
 .quality-box {
   display: flex;
-  justify-content: flex-start;
+}
+
+.quality-result {
+  margin-top: 6px;
+  border: 1px solid red;
+}
+
+.quality-image {
+  height: 100%;
+}
+
+.quality-btns {
+  padding-left: 10px;
 }
 
 .quality-btns, .delete-btn {
-  height: 4vh;
-  width:  10vw;
+  height: 35px;
+  width: auto;
+  border: 1px solid red;
+  background: transparent;
+
 }
