@@ -1,3 +1,54 @@
+html {
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0px;
+  /*display: flex;*/
+}
+
+.top-box {
+    background-color: #E5F3F2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100vw;
+    margin: 0px;
+
+}
+
+h1 {
+  margin: 0px;
+}
+
+.title-idea {
+  color: #00A79D;
+}
+
+.title-box {
+  color: #6D6E71;
+}
+
+.input-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  width: 90vw;
+}
+
+.save-button {
+  width: 90vw;
+}
+
+.save-button {
+  color: #FFFFFF;
+  background-color: #00A79D;
+
+}
+
+
 .quality-btns {
   height: 4em;
   width:  4em;
