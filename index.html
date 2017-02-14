@@ -10,16 +10,19 @@
 
   <body>
     <section class="top-box">
+
       <header>
         <h1><span class="title-idea">idea</span><span class="title-box">box</span></h1>
       </header>
 
       <section class="input-field">
-        <input type="text" name="title" value="">
-        <input type="text" name="Body" value="">
-        <button type="button" name="save button" class="save-button">Save</button>
+        <input class="idea-title" type="text" name="title" value="">
+        <input class="idea-body "type="text" name="Body" value="">
+        <button class="save-button" type="button" name="save button" class="save-button">Save</button>
       </section>
+
     </section>
+
     <section class="search-input">
       <input type="text" name="idea search" value="">
     </section>
@@ -27,16 +30,19 @@
     <section class="idea-card-container">
       <div class="idea-card">
         <div class="card-title-box">
-          <h1>Example Idea 1</h1>
-          <button type="button" name="button"></button>
+          <h1 class="card-title">Example Idea 1</h1>
+          <button class="delete-btn" type="button" name="button"></button>
         </div>
-        <p>Some generic idea that somehow bend the framework of originality.</p>
+        <p class="card-body">Some generic idea that somehow bend the framework of originality.</p>
         <div class="quality-box">
-          <button class="quality-btns" type="button" name="button"><img src="./images/upvote.svg" alt="up vote button"></button>
-          <button class="quality-btns" type="button" name="button"><img src="./images/downvote.svg" alt="down vote button"></button>
+          <button class="quality-btns up-vote" type="button" name="button"><img src="./images/upvote.svg" alt="up vote button"></button>
+          <button class="quality-btns down-vote" type="button" name="button"><img src="./images/downvote.svg" alt="down vote button"></button>
           <p class="quality-result">Quality: swill</p>
         </div>
       </div>
     </section>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="scripts.js"></script>
   </body>
 </html>
