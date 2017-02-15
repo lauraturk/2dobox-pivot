@@ -3,7 +3,6 @@ function IdeaObj(id,ideaTitle,ideaBody) {
   this.title = ideaTitle
   this.body = ideaBody
   this.quality = 'swill'
-
 }
 
 
@@ -28,45 +27,46 @@ $('.save-button').click(function() {
   var ideaTitle = $('.idea-title').val()
   var ideaBody = $('.idea-body').val()
   var ideaObj = new IdeaObj(id,ideaTitle,ideaBody)
-
   $('.idea-title').val("")
   $('.idea-body').val("")
-
   var strungOut = JSON.stringify(ideaObj)
   localStorage.setItem(id, strungOut)
-
   var retrieveIdea = localStorage.getItem(id)
   var parsedOut = JSON.parse(retrieveIdea)
   newIdea(parsedOut)
 })
 
-// for (var i=1; i <= localStorage.length; i++)  {
-//    alert(localStorage.getItem(i))
+// function persistMofo() {
+//   $(localStorage.key(n)).map(function(i) {
+//   var persistIdea = JSON.parse(i)
+//   console.log(i, 'stagger')
+//   })
 // }
 
 function persistMofo() {
-  $(localStorage.length).each(function(index) {
-    var jackAss = this.getItem(index)
-    var persistIdea = JSON.parse(jackAss)
-    console.log(persistIdea)
-    newIdea(persistIdea)
-  })
+for(var i =0; i < localStorage.length; i++){
+  var jellyBean = JSON.parse(localStorage.getItem(localStorage.key(i)))
+  newIdea(jellyBean)
+   console.log(jellyBean);
+ }
 }
-//
+
 // function persistMofo() {
-//   var retrieveIdea = window.localStorage.getItem('*')
-//   console.log(retrieveIdea)
-// $(retrieveIdea).each(function(index){
-//   var persistIdea = JSON.parse(index)
-//   newIdea(persistIdea)
-// })
+//   //what can we pass into key() to have it find all keys?
+//   $(localStorage.key).each(function(i) {
+//     console.log(i, 'stagger')
+//     var persistIdea = JSON.parse(i)
+//     newIdea(persistIdea)
+//   })
 // }
-
 persistMofo()
-
 
 $('.idea-card-container').on('click', '.delete-btn', function() {
   $(this).parents().remove('.idea-card')
+  var beaner = JSON.parse(localStorage.getItem($(this).parents('.idea-card').attr('id')))
+  console.log(beaner, 'beaner')
+  localStorage.removeItem()
+  // console.log(localStorage, 'localStorage')
 })
 
 
