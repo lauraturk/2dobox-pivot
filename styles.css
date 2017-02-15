@@ -83,6 +83,7 @@ input {
   width: 100vw;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   font-size: 18px;
 }
 
