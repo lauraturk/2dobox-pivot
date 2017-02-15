@@ -16,7 +16,7 @@ function newIdea(parsedOut) {
       <div class="quality-box">
         <button class="quality-btns up-vote" type="button" name="button"><img class="quality-image" src="./images/upvote.svg" alt="up vote button"></button>
         <button class="quality-btns down-vote" type="button" name="button"><img class="quality-image" src="./images/downvote.svg" alt="down vote button"></button>
-        <p class="quality-result">Quality: ${parsedOut.quality}</p>
+        <p class="quality-result">Quality: <span class="current-quality">${parsedOut.quality}</span></p>
       </div>
     </div>`)
   }
@@ -34,7 +34,6 @@ $('.save-button').click(function() {
   var ideaObj = new IdeaObj(id,ideaTitle,ideaBody)
   var strungOut = JSON.stringify(ideaObj)
   localStorage.setItem(id, strungOut)
-  console.log(localStorage);
   $('.idea-title').val("")
   $('.idea-body').val("")
   persistMafk()
@@ -44,7 +43,6 @@ function persistMafk() {
   $('.idea-card-container').html('')
   for (var i = 0; i < localStorage.length; i++) {
     var nintendoCartridgeBlow = JSON.parse(localStorage.getItem(localStorage.key(i)))
-    console.log(nintendoCartridgeBlow);
     newIdea(nintendoCartridgeBlow)
   }
 }
@@ -58,20 +56,25 @@ $('.idea-card-container').on('click', '.delete-btn', function() {
 persistMafk()
 
 $('.idea-card-container').on('click', '.up-vote', function() {
-
-  var flawless = JSON.parse(localStorage.getItem($('.idea-card').attr('id')))
-  console.log(flawless, 'flawless')
-  console.log(flawless.id, 'id');
-  var flawlessId = flawless.id
-
-  if (flawless.quality == "plausible") {
-    flawless.quality = "genius"
+  var changeQuality = JSON.parse(localStorage.getItem($('.idea-card').attr('id')))
+  var changeQualityId = changeQuality.id
+  if (changeQuality.quality == "plausible") {
+    changeQuality.quality = "genius"
+  } else if (changeQuality.quality == "swill") {
+    changeQuality.quality = "plausible"
   }
-  if (flawless.quality == "swill") {
-    flawless.quality = "plausible"
-  }
-
-  localStorage.setItem(flawlessId, JSON.stringify(flawless))
+  localStorage.setItem(changeQualityId, JSON.stringify(changeQuality))
   persistMafk()
-  console.log(localStorage);
+})
+
+$('.idea-card-container').on('click', '.down-vote', function() {
+  var changeQuality = JSON.parse(localStorage.getItem($('.idea-card').attr('id')))
+  var changeQualityId = changeQuality.id
+  if (changeQuality.quality == "genius") {
+    changeQuality.quality = "plausible"
+  } else if (changeQuality.quality == "plausible") {
+    changeQuality.quality = "swill"
+  }
+  localStorage.setItem(changeQualityId, JSON.stringify(changeQuality))
+  persistMafk()
 })
