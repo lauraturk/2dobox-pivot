@@ -4,6 +4,7 @@ function IdeaObj(id,ideaTitle,ideaBody) {
   this.title = ideaTitle
   this.body = ideaBody
   this.quality = 'swill'
+
 }
 
 function newIdea(ideaObj) {
@@ -22,45 +23,34 @@ $('.idea-card-container').prepend(
   </div>`)
 }
 
-
 $('.idea-card-container').on('click', '.delete-btn', function() {
   $(this).parents().remove('.idea-card')
 })
+
+// $('.idea-card').on('click', '.up-vote', function() {
+//   var retrievedIdea = localStorage.getItem(this.id)
+//   var parsedIdea = JSON.parse(retrievedIdea)
+//   if quality = "swill" {
+//     quality = "plausible"
+//   }
+//   if quality = "plausible" {
+//     quality = "genius"
+//   }
+//   var strungOut = JSON.stringify(ideaObj)
+//   localStorage.setItem(id, strungOut)
+//   // parsedIdea.quality = "genius"
+// })
 
 $('.save-button').click(function() {
   var id = $.now()
   var ideaTitle = $('.idea-title').val()
   var ideaBody = $('.idea-body').val()
   var ideaObj = new IdeaObj(id,ideaTitle,ideaBody)
+
   newIdea(ideaObj)
   $('.idea-title').val("")
   $('.idea-body').val("")
+
+  var strungOut = JSON.stringify(ideaObj)
+  localStorage.setItem(id, strungOut)
 })
-
-$('.up-vote').on('click', '.quality-result', function() {
-  console.log("mutha fuckin' Jones")
-
-  if ($(this).hasClass('swill')) {
-      $(this).removeClass('swill')
-      $(this).addClass('plausible')
-  } else if ($(this).hasClass('plausible')) {
-      $(this).removeClass('plausible')
-      $(this).addClass('genius')
-  }
-
-})
-
-$('.down-vote').on('click', function() {
-  console.log("muther fucker")
-  if ($('.quality-result').hasClass('genius')) {
-    $('.quality-result').removeClass('genius')
-    $('.quality-result').addClass('plausible')
-  } else if ($('.quality-result').hasClass('plausible')) {
-    $('.quality-result').removeClass('plausible')
-    $('.quality-result').addClass('swill')
-  }
-})
-
-
-
-// console.log(ideaTitle,'ideaTitle')
