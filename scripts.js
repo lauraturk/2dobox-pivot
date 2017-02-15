@@ -5,7 +5,6 @@ function IdeaObj(id,ideaTitle,ideaBody) {
   this.quality = 'swill'
 }
 
-
 function newIdea(parsedOut) {
 $('.idea-card-container').prepend(
   `<div class="idea-card" id="${parsedOut.id}">
@@ -22,65 +21,54 @@ $('.idea-card-container').prepend(
   </div>`)
 }
 
+function activate() {
+  $('.idea-title').keyup(function() {
+    console.log('meat');
+  })
+}
+
 $('.save-button').click(function() {
   var id = $.now()
   var ideaTitle = $('.idea-title').val()
   var ideaBody = $('.idea-body').val()
   var ideaObj = new IdeaObj(id,ideaTitle,ideaBody)
-  $('.idea-title').val("")
-  $('.idea-body').val("")
   var strungOut = JSON.stringify(ideaObj)
   localStorage.setItem(id, strungOut)
-  var retrieveIdea = localStorage.getItem(id)
-  var parsedOut = JSON.parse(retrieveIdea)
+  var parsedOut = JSON.parse(localStorage.getItem(id))
+  $('.idea-title').val("")
+  $('.idea-body').val("")
   newIdea(parsedOut)
 })
 
-// function persistMofo() {
-//   $(localStorage.key(n)).map(function(i) {
-//   var persistIdea = JSON.parse(i)
-//   console.log(i, 'stagger')
-//   })
-// }
-
-function persistMofo() {
-for(var i =0; i < localStorage.length; i++){
-  var jellyBean = JSON.parse(localStorage.getItem(localStorage.key(i)))
-  newIdea(jellyBean)
-   console.log(jellyBean);
- }
+function persistMafk() {
+  for (var i = 0; i < localStorage.length; i++) {
+    var nintendoCartridgeBlow = JSON.parse(
+      localStorage.getItem(
+        localStorage.key(i)
+      ))
+    newIdea(nintendoCartridgeBlow)
+  }
 }
-
-// function persistMofo() {
-//   //what can we pass into key() to have it find all keys?
-//   $(localStorage.key).each(function(i) {
-//     console.log(i, 'stagger')
-//     var persistIdea = JSON.parse(i)
-//     newIdea(persistIdea)
-//   })
-// }
-persistMofo()
 
 $('.idea-card-container').on('click', '.delete-btn', function() {
   $(this).parents().remove('.idea-card')
-  var beaner = JSON.parse(localStorage.getItem($(this).parents('.idea-card').attr('id')))
-  console.log(beaner, 'beaner')
-  localStorage.removeItem()
-  // console.log(localStorage, 'localStorage')
+  var sensitive = $(this).parents('.idea-card').attr('id')
+  localStorage.removeItem(sensitive)
 })
 
+persistMafk()
 
+$('.idea-card-container').on('click', '.up-vote', function() {
+  var flawless = JSON.parse(localStorage.getItem($('.idea-card').attr('id')))
+  var flawlessId = flawless.id
 
-// $('.idea-card').on('click', '.up-vote', function() {
-//   var retrievedIdea = localStorage.getItem(this.id)
-//   var parsedIdea = JSON.parse(retrievedIdea)
-//   if quality = "swill" {
-//     quality = "plausible"
-//   }
-//   if quality = "plausible" {
-//     quality = "genius"
-//   }
-//   var strungOut = JSON.stringify(ideaObj)
-//   localStorage.setItem(id, strungOut)
-//   // parsedIdea.quality = "genius"
-// })
+  if (flawless.quality = "swill") {
+    flawless.quality = "plausible"
+  } else if (flawless.quality = "plausible") {
+    flawless.quality = "genius"
+  }
+
+  var strungOutFlawless = JSON.stringify(flawless)
+  localStorage.setItem(flawlessId, strungOutFlawless)
+  persistMafk()
+})
