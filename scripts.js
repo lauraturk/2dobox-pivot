@@ -89,11 +89,38 @@ $('.idea-card-container').on('blur', '.card-body', function() {
   var newBodyValue = JSON.parse(localStorage.getItem(updateBody))
   newBodyValue.body = $('.card-body').text()
   localStorage.setItem(updateBody, JSON.stringify(newBodyValue))
-}
-)
-
-$('.idea-card-container').on('keyup', '.search-input', function(){
-  var searchText = $(this).text()
-console.log(searchText, "search")
 })
+
+
+$('.search-text').on('keyup', function(){
+  var lookFor = $(this).val().toLowerCase()
+  $('.idea-card').each(function(index, element){
+    var text = $(element).children().text().toLowerCase();
+    var match = !!text.match(lookFor);
+    $(element).toggle(match);
+  }
+)
+})
+
+$('.idea-card-container').on('keypress','.card-title, .card-body', function(e){
+  if (e.which === 13){
+    e.preventDefault()
+  $('.card-title, .card-body').blur()
+  }
+})
+
+$('.idea-title').on('keypress', function(e) {
+  if (e.which === 13) {
+    e.preventDefault()
+  $('.save-button').click()
+  }
+})
+
+$('.idea-body').on('keypress', function(e) {
+  if (e.which === 13) {
+    e.preventDefault()
+  $('.save-button').click()
+  }
+})
+
 persistMafk()
