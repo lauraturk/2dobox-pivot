@@ -1,5 +1,5 @@
-html {
-  width: 100vw;
+body {
+  width: 100%;
   box-sizing: border-box;
   padding: 0px;
   font-family: 'Open Sans', sans-serif;
@@ -10,17 +10,16 @@ header {
   text-align: center;
   width: 100vw;
   margin top: 0px;
-  height: 10vh;
+  /*height: 8vh;*/
 }
 
 .top-box {
-  background-color: #E5F3F2;
   display: flex;
   flex-wrap: wrap;
-  align-items: stretch;
+  background-color: #E5F3F2;
   width: 100vw;
-  margin: 0px;
   height: 60vh;
+  margin: 0px;
 }
 
 h1 {
@@ -39,6 +38,10 @@ h1 {
   font-size: 34px;
 }
 
+header h1 {
+  margin-top: 1vh;
+}
+
 .input-field {
   display: flex;
   flex-wrap: wrap;
@@ -49,6 +52,7 @@ h1 {
 }
 
 input {
+  font-size: 25pt;
   width: 90vw;
   height: 4vh;
   font-family: 'Open Sans', sans-serif;
@@ -56,18 +60,19 @@ input {
 
 .idea-body {
   height: 20vh;
-  display:
 }
 
 .save-button {
+  font-size: 25px;
+  letter-spacing: 2px;
   width: 90vw;
+  border: none;
 }
 
 .save-button {
   color: #FFFFFF;
   background-color: #00A79D;
   height: 6vh;
-
 }
 
 .search-input {
@@ -75,60 +80,112 @@ input {
   text-align: center;
   margin-top: 5vh;
   margin-bottom: 5vh;
-
 }
 
 .idea-card-container {
-  width: 91vw;
+  width: 90%;
+  /*min-width: 651px;*/
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   font-size: 18px;
-  margin: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .idea-card {
-  width: 90vw;
+  width: 90%;
+  height: 120%;
   border-bottom: 1px solid #D1D3D4;
-  line-height: 120%;
-  height: 20vh;
-  min-height: 15vh;
-  border: 1px solid red;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card-title-box {
   display: flex;
-  justify-content: space-between;
   align-content: center;
+  justify-content: space-between;
   font-size: 12px;
+  margin-top: 10px;
 }
 
 .card-title {
   font-size: 20pt;
-  width: 20px;
+  width: 60%;
+}
+
+.card-body {
+  width: 100%;
 }
 
 .quality-box {
   display: flex;
+  align-items: baseline;
 }
 
 .quality-result {
-  margin-top: 6px;
-  border: 1px solid red;
+  font-size: 15pt;
+  padding-top: 17px;
 }
 
 .quality-image {
-  height: 100%;
+  height: 35px;
 }
 
-.quality-btns {
-  padding-left: 10px;
+.quality-result {
+  display: flex;
 }
 
 .quality-btns, .delete-btn {
-  height: 35px;
-  width: auto;
-  border: 1px solid red;
   background: transparent;
+  border: none;
+]}
 
+@media screen and (min-width: 650px){
+
+  input {
+    width: 70vw;
+  }
+
+  .save-button {
+    width: 70vw;
+  }
+
+  .idea-card {
+    width: 70vw;
+  }
+
+}
+
+@media screen and (min-width: 850px) {
+
+  header {
+    height: 7vh;
+  }
+
+  .title-idea {
+    font-size: 64px;
+  }
+
+  .title-box {
+    margin-top: 10px;
+    font-size: 64px;
+  }
+
+  .save-button {
+    margin-top: 15px;
+  }
+
+  .idea-body {
+    height: 5vh;
+  }
+
+  .input-field {
+    height: 30vh;
+    margin-bottom: 0px;
+  }
+
+  .top-box {
+    height: 45vh;
+  }
 }

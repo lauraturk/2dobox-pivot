@@ -2,7 +2,7 @@ function IdeaObj(id,ideaTitle,ideaBody) {
   this.id = id
   this.title = ideaTitle
   this.body = ideaBody
-  this.quality = 'swill'
+  this.quality = ' swill'
 }
 
 function newIdea(parsedOut) {
@@ -51,10 +51,10 @@ $('.idea-card-container').on('click', '.down-vote', function() {
   var changeQuality = $(this).parents('.idea-card').attr('id')
   var changeThisQuality = JSON.parse(localStorage.getItem(changeQuality))
   var newQual = $(this).siblings('.current-quality')
-  if (newQual.text() == 'genius') {
-    newQual.text('plausible')
-  } else if (newQual.text() == 'plausible') {
-    newQual.text('swill')
+  if (newQual.text() == ' genius') {
+    newQual.text(' plausible')
+  } else if (newQual.text() == ' plausible') {
+    newQual.text(' swill')
   }
   changeThisQuality.quality = newQual.text()
   localStorage.setItem(changeQuality, JSON.stringify(changeThisQuality))
@@ -66,10 +66,10 @@ $('.idea-card-container').on('click', '.up-vote', function() {
   var changeThisQuality = JSON.parse(localStorage.getItem(changeQuality))
   var newQual = $(this).siblings('.current-quality')
 
-  if (newQual.text() == 'swill') {
-    newQual.text('plausible')
-  } else if (newQual.text() == 'plausible') {
-    newQual.text('genius')
+  if (newQual.text() == ' swill') {
+    newQual.text(' plausible')
+  } else if (newQual.text() == ' plausible') {
+    newQual.text(' genius')
   }
 
   changeThisQuality.quality = newQual.text()
@@ -96,4 +96,4 @@ $('.idea-card-container').on('keyup', '.search-input', function(){
   var searchText = $(this).text()
 console.log(searchText, "search")
 })
-// persistMafk()
+persistMafk()

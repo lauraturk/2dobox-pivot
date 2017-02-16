@@ -9,33 +9,45 @@
     <title>IdeaBox</title>
   </head>
   <body>
+
     <section class="top-box">
+
       <header>
         <h1><span class="title-idea">idea</span><span class="title-box">box</span></h1>
       </header>
+
       <section class="input-field">
-        <input placeholder="Title"class="idea-title" type="text" name="title" value="">
-        <input placeholder="Body" class="idea-body "type="text" name="Body" value="">
-        <button class="save-button" type="button" name="save button">Save</button>
+        <input placeholder="Title"class="input idea-title" type="text" name="title" value="">
+        <input placeholder="Body" class="input idea-body "type="text" name="Body" value="">
+        <button class="save-button" type="button" name="save button">save</button>
       </section>
+
     </section>
+
     <section class="search-input">
       <input placeholder="Search" type="text" name="idea search" value="">
     </section>
+
     <section class="idea-card-container">
       <div class="idea-card" id="">
+
         <div class="card-title-box">
-          <h1 class="card-title"></h1>
+          <h1 class="card-title">Some Shitty new idea</h1>
           <button class="delete-btn" type="button" name="button"><img class="quality-image" src="./images/delete.svg" alt="delete button"></img></button>
         </div>
-          <p class="card-body" contenteditable="true"></p>
+
+          <p class="card-body" contenteditable="true">Here is placed the content of the the idea. Hope it's worth saving. Probably it isn't.</p>
+
         <div class="quality-box">
           <button class="quality-btns up-vote" type="button" name="button"><img class="quality-image" src="./images/upvote.svg" alt="up vote button"></button>
           <button class="quality-btns down-vote" type="button" name="button"><img class="quality-image" src="./images/downvote.svg" alt="down vote button"></button>
-          <p class="quality-result">Quality: <p class="current-quality"></p></p>
+          <h5 class="quality-result">Quality: </h5>
+          <p class="current-quality"></p>Swill
         </div>
+
       </div>
     </section>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script>
     <script type="text/javascript" src="scripts.js"></script>
