@@ -7,25 +7,19 @@ function IdeaObj(id,ideaTitle,ideaBody) {
 
 function newIdea(parsedOut) {
   $('.idea-card-container').prepend(
-    `<div class="idea-card" id="${parsedOut.id}">
-      <div class="card-title-box">
-        <h1 class="card-title">${parsedOut.title}</h1>
-        <button class="delete-btn" type="button" name="button"><img class="quality-image" src="./images/delete.svg" alt="delete button"></img></button>
-      </div>
-      <p class="card-body">${parsedOut.body}</p>
-      <div class="quality-box">
-        <button class="quality-btns up-vote" type="button" name="button"><img class="quality-image" src="./images/upvote.svg" alt="up vote button"></button>
-        <button class="quality-btns down-vote" type="button" name="button"><img class="quality-image" src="./images/downvote.svg" alt="down vote button"></button>
-        <p class="quality-result">Quality: ${parsedOut.quality}</p>
-      </div>
-    </div>`)
+      `<div class="idea-card" id="${parsedOut.id}">
+        <div class="card-title-box">
+          <h1 class="card-title" contenteditable="true">${parsedOut.title}</h1>
+          <button class="delete-btn" type="button" name="button"><img class="quality-image" src="./images/delete.svg" alt="delete button"></img></button>
+        </div>
+          <p class="card-body" contenteditable="true">${parsedOut.body}</p>
+        <div class="quality-box">
+          <button class="quality-btns up-vote" type="button" name="button"><img class="quality-image" src="./images/upvote.svg" alt="up vote button"></button>
+          <button class="quality-btns down-vote" type="button" name="button"><img class="quality-image" src="./images/downvote.svg" alt="down vote button"></button>
+          <p class="quality-result">Quality: <p class="current-quality">${parsedOut.quality}</p></p>
+        </div>
+      </div>`)
   }
-
-// function activate() {
-//   $('.idea-title').keyup(function() {
-//     console.log('meat');
-//   })
-// }
 
 $('.save-button').click(function() {
   var id = $.now()
@@ -34,7 +28,6 @@ $('.save-button').click(function() {
   var ideaObj = new IdeaObj(id,ideaTitle,ideaBody)
   var strungOut = JSON.stringify(ideaObj)
   localStorage.setItem(id, strungOut)
-  console.log(localStorage);
   $('.idea-title').val("")
   $('.idea-body').val("")
   persistMafk()
@@ -44,7 +37,6 @@ function persistMafk() {
   $('.idea-card-container').html('')
   for (var i = 0; i < localStorage.length; i++) {
     var nintendoCartridgeBlow = JSON.parse(localStorage.getItem(localStorage.key(i)))
-    console.log(nintendoCartridgeBlow);
     newIdea(nintendoCartridgeBlow)
   }
 }
@@ -55,23 +47,53 @@ $('.idea-card-container').on('click', '.delete-btn', function() {
   localStorage.removeItem(sensitive)
 })
 
-persistMafk()
+$('.idea-card-container').on('click', '.down-vote', function() {
+  var changeQuality = $(this).parents('.idea-card').attr('id')
+  var changeThisQuality = JSON.parse(localStorage.getItem(changeQuality))
+  var newQual = $(this).siblings('.current-quality')
+  if (newQual.text() == 'genius') {
+    newQual.text('plausible')
+  } else if (newQual.text() == 'plausible') {
+    newQual.text('swill')
+  }
+  changeThisQuality.quality = newQual.text()
+  localStorage.setItem(changeQuality, JSON.stringify(changeThisQuality))
+  persistMafk()
+})
 
 $('.idea-card-container').on('click', '.up-vote', function() {
+  var changeQuality = $(this).parents('.idea-card').attr('id')
+  var changeThisQuality = JSON.parse(localStorage.getItem(changeQuality))
+  var newQual = $(this).siblings('.current-quality')
 
-  var flawless = JSON.parse(localStorage.getItem($('.idea-card').attr('id')))
-  console.log(flawless, 'flawless')
-  console.log(flawless.id, 'id');
-  var flawlessId = flawless.id
-
-  if (flawless.quality == "plausible") {
-    flawless.quality = "genius"
-  }
-  if (flawless.quality == "swill") {
-    flawless.quality = "plausible"
+  if (newQual.text() == 'swill') {
+    newQual.text('plausible')
+  } else if (newQual.text() == 'plausible') {
+    newQual.text('genius')
   }
 
-  localStorage.setItem(flawlessId, JSON.stringify(flawless))
+  changeThisQuality.quality = newQual.text()
+  localStorage.setItem(changeQuality, JSON.stringify(changeThisQuality))
   persistMafk()
-  console.log(localStorage);
 })
+
+$('.idea-card-container').on('blur', '.card-title', function() {
+  var updateTitle = $(this).parents('.idea-card').attr('id')
+  var newTitleValue = JSON.parse(localStorage.getItem(updateTitle))
+  newTitleValue.title = $('.card-title').text()
+  localStorage.setItem(updateTitle,JSON.stringify(newTitleValue))
+})
+
+$('.idea-card-container').on('blur', '.card-body', function() {
+  var updateBody = $(this).parents('.idea-card').attr('id')
+  var newBodyValue = JSON.parse(localStorage.getItem(updateBody))
+  newBodyValue.body = $('.card-body').text()
+  localStorage.setItem(updateBody, JSON.stringify(newBodyValue))
+}
+)
+
+$('.idea-card-container').on('keyup', '.search-input', function(){
+  var searchText = $(this).text()
+console.log(searchText, "search")
+})
+// persistMafk()
