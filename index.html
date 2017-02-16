@@ -23,6 +23,18 @@
       <input placeholder="Search" type="text" name="idea search" value="">
     </section>
     <section class="idea-card-container">
+      <div class="idea-card" id="">
+        <div class="card-title-box">
+          <h1 class="card-title"></h1>
+          <button class="delete-btn" type="button" name="button"><img class="quality-image" src="./images/delete.svg" alt="delete button"></img></button>
+        </div>
+          <p class="card-body" contenteditable="true"></p>
+        <div class="quality-box">
+          <button class="quality-btns up-vote" type="button" name="button"><img class="quality-image" src="./images/upvote.svg" alt="up vote button"></button>
+          <button class="quality-btns down-vote" type="button" name="button"><img class="quality-image" src="./images/downvote.svg" alt="down vote button"></button>
+          <p class="quality-result">Quality: <p class="current-quality"></p></p>
+        </div>
+      </div>
     </section>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script>

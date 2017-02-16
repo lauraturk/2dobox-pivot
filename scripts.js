@@ -9,23 +9,17 @@ function newIdea(parsedOut) {
   $('.idea-card-container').prepend(
       `<div class="idea-card" id="${parsedOut.id}">
         <div class="card-title-box">
-          <h1 class="card-title">${parsedOut.title}</h1>
+          <h1 class="card-title" contenteditable="true">${parsedOut.title}</h1>
           <button class="delete-btn" type="button" name="button"><img class="quality-image" src="./images/delete.svg" alt="delete button"></img></button>
-          </div>
-          <p class="card-body">${parsedOut.body}</p>
-          <div class="quality-box">
+        </div>
+          <p class="card-body" contenteditable="true">${parsedOut.body}</p>
+        <div class="quality-box">
           <button class="quality-btns up-vote" type="button" name="button"><img class="quality-image" src="./images/upvote.svg" alt="up vote button"></button>
           <button class="quality-btns down-vote" type="button" name="button"><img class="quality-image" src="./images/downvote.svg" alt="down vote button"></button>
           <p class="quality-result">Quality: <p class="current-quality">${parsedOut.quality}</p></p>
         </div>
       </div>`)
   }
-
-// function activate() {
-//   $('.idea-title').keyup(function() {
-//     console.log('meat');
-//   })
-// }
 
 $('.save-button').click(function() {
   var id = $.now()
@@ -71,14 +65,35 @@ $('.idea-card-container').on('click', '.up-vote', function() {
   var changeQuality = $(this).parents('.idea-card').attr('id')
   var changeThisQuality = JSON.parse(localStorage.getItem(changeQuality))
   var newQual = $(this).siblings('.current-quality')
+
   if (newQual.text() == 'swill') {
     newQual.text('plausible')
   } else if (newQual.text() == 'plausible') {
     newQual.text('genius')
   }
+
   changeThisQuality.quality = newQual.text()
   localStorage.setItem(changeQuality, JSON.stringify(changeThisQuality))
   persistMafk()
 })
 
-persistMafk()
+$('.idea-card-container').on('blur', '.card-title', function() {
+  var updateTitle = $(this).parents('.idea-card').attr('id')
+  var newTitleValue = JSON.parse(localStorage.getItem(updateTitle))
+  newTitleValue.title = $('.card-title').text()
+  localStorage.setItem(updateTitle,JSON.stringify(newTitleValue))
+})
+
+$('.idea-card-container').on('blur', '.card-body', function() {
+  var updateBody = $(this).parents('.idea-card').attr('id')
+  var newBodyValue = JSON.parse(localStorage.getItem(updateBody))
+  newBodyValue.body = $('.card-body').text()
+  localStorage.setItem(updateBody, JSON.stringify(newBodyValue))
+}
+)
+
+$('.idea-card-container').on('keyup', '.search-input', function(){
+  var searchText = $(this).text()
+console.log(searchText, "search")
+})
+// persistMafk()
