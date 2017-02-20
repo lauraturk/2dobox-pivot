@@ -1,0 +1,28 @@
+{
+  "name": "2dobox-pivot",
+  "version": "1.0.0",
+  "description": "### IdeaBox",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devthehuman/2dobox-pivot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devthehuman/2dobox-pivot/issues"
+  },
+  "homepage": "https://github.com/devthehuman/2dobox-pivot#readme",
+  "dependencies": {
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  }
+}
