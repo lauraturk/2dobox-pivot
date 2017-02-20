@@ -28,6 +28,7 @@ $('.save-button').click(function() {
   var ideaObj = new IdeaObj(id,ideaTitle,ideaBody)
   var strungOut = JSON.stringify(ideaObj)
   localStorage.setItem(id, strungOut)
+  console.log('why');
   $('.idea-title').val("")
   $('.idea-body').val("")
   persistMafk()

@@ -20,7 +20,7 @@ searchTest(driver_chr);
 // searchTest(driver_saf);
 
 function searchTest(driver){
-	driver.get('https:/devthehuman.github.io/2dobox-pivot');
+	driver.get('file:///Users/lauraturk/Turing/2dobox-pivot/index.html');
 
 	driver.sleep(3000).then(function() {
 	driver.getTitle().then(function(title) {
