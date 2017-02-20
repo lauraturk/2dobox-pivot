@@ -1,4 +1,7 @@
 ### IdeaBox
+<<<<<<< HEAD
+# dd-comp-challenge-2
+=======
 
 ### IdeaBox
 
@@ -47,3 +50,4 @@ functionality to test:
 * edited ideas should remain edited
 * deleted items should remain deleted
 * idea quality should remain
+>>>>>>> 103ed2dda732c41c2b37b8b090e4bb5dabf8baba
