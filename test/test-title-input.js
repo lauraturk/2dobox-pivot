@@ -17,20 +17,20 @@ searchTest(driver_fx);
 
 
 function searchTest(driver) {
-  var title = $('.idea-title').val();
   driver.get('https://devthehuman.github.io/2dobox-pivot/');
   driver.findElement(By.className('idea-title')).sendKeys('Testing Title');
   driver.findElement(By.className('idea-body')).sendKeys('Testing Body');
   driver.findElement(By.className('save-button')).click();
 
   driver.sleep(3000).then(function() {
+    driver.findElement(By.className('card-title')).getText().then(function(title) {
       if(title === 'Testing Title') {
         console.log('Test Passed');
       } else {
         console.log('Test Failed');
       }
     });
-  }
+  });
 
   driver.quit();
 }
