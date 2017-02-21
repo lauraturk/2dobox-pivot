@@ -6,12 +6,12 @@ function IdeaObj(id, ideaTitle, ideaBody) {
   this.title = ideaTitle;
   this.body = ideaBody;
   this.quality = 'swill';
-  this.completed = false;
+  this.completedClass;
 }
 
 function newIdea(idea) {
   $('.idea-card-container').prepend(
-  `<section class="idea-card" id="${idea.id}">
+  `<section class="idea-card ${idea.completedClass}" id="${idea.id}">
     <article class="card-title-box">
       <h1 class="card-title" contenteditable="true">${idea.title}</h1>
       <button class="delete-btn"><img class="quality-image" src="./images/delete.svg" alt="delete button"></img></button>
@@ -30,10 +30,13 @@ $('.idea-card-container').on('click', '.completed-task', function (){
   $(this).closest('.idea-card').addClass('completed hidden');
   var id = $(this).parents('.idea-card').attr('id');
   var completedValue = JSON.parse(localStorage.getItem(id));
-  completedValue.completed = true;
+  completedValue.completedClass = 'completed hidden';
   localStorage.setItem(id, JSON.stringify(completedValue));
 })
 
+$('.show-completed').on('click', function (){
+  $('.idea-card-container').children('.hidden').removeClass('hidden');
+})
 
 
 function prependIdeas() {
@@ -53,12 +56,7 @@ function getIdeas() {
   $('.idea-card').remove();
   for (var i in localStorage) {
     var idea = JSON.parse(localStorage[i]);
-    var id = $(idea).prop('completed');
-    if (id === true) {
-    $('.idea-card').closest(id).addClass('completed');
-    } else {
-      newIdea(idea);
-    }
+    newIdea(idea);
   }
 }
 
