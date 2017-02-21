@@ -23,7 +23,7 @@ function searchTest(driver) {
   driver.findElement(By.className('idea-body')).sendKeys('Testing Body');
   driver.findElement(By.className('save-button')).click();
 
-  driver.sleep(3000).then(function() {
+  driver.sleep(5000).then(function() {
     driver.findElement(By.className('card-title')).getText().then(function(title) {
       if(title === 'Testing Title') {
         console.log('Test Passed');
@@ -34,4 +34,3 @@ function searchTest(driver) {
   });
     driver.quit();
   }
-
