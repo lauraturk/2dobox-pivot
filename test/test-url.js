@@ -25,9 +25,9 @@ function searchTest(driver){
 	driver.sleep(3000).then(function() {
 	driver.getTitle().then(function(title) {
 		if(title === "IdeaBox") {
-			console.log("Test Passed")
+			console.log("Test Passed");
 		} else {
-			console.log("Test Failed")
+			console.log("Test Failed");
 		}
 	});
 });
