@@ -18,14 +18,15 @@ searchTest(driver_fx);
 
 function searchTest(driver) {
   driver.get('file:///Users/lauraturk/Turing/2dobox-pivot/index.html');
-
   driver.findElement(By.className('idea-title')).sendKeys('Testing Title');
   driver.findElement(By.className('idea-body')).sendKeys('Testing Body');
   driver.findElement(By.className('save-button')).click();
+	driver.findElement(By.className('card-body')).click();
+	driver.findElement(By.className('card-body')).sendKeys(' Edit');
 
   driver.sleep(3000).then(function() {
-    driver.findElement(By.className('card-title')).getText().then(function(title) {
-      if(title === 'Testing Title') {
+    driver.findElement(By.className('card-body')).getText().then(function(title) {
+      if(title === 'Testing Body Edit') {
         console.log('Test Passed');
       } else {
         console.log('Test Failed');
@@ -34,4 +35,3 @@ function searchTest(driver) {
   });
     driver.quit();
   }
-

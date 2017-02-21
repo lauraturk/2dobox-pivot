@@ -22,16 +22,17 @@ function newIdea(parsedOut) {
 }
 
 $('.save-button').click(function() {
-  var id = $.now();
-  var ideaTitle = $('.idea-title').val();
-  var ideaBody = $('.idea-body').val();
-  var ideaObj = new IdeaObj(id,ideaTitle,ideaBody);
-  var strungOut = JSON.stringify(ideaObj);
-  localStorage.setItem(id, strungOut);
-  $('.idea-title').val("");
-  $('.idea-body').val("");
-  persistMafk();
-});
+
+  var id = $.now()
+  var ideaTitle = $('.idea-title').val()
+  var ideaBody = $('.idea-body').val()
+  var ideaObj = new IdeaObj(id,ideaTitle,ideaBody)
+  var strungOut = JSON.stringify(ideaObj)
+  localStorage.setItem(id, strungOut)
+  $('.idea-title').val("")
+  $('.idea-body').val("")
+  persistMafk()
+})
 
 function persistMafk() {
   $('.idea-card-container').html('');
