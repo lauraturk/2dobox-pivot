@@ -21,12 +21,11 @@ function searchTest(driver) {
   driver.findElement(By.className('idea-title')).sendKeys('Testing Title');
   driver.findElement(By.className('idea-body')).sendKeys('Testing Body');
   driver.findElement(By.className('save-button')).click();
-	driver.findElement(By.className('up-vote')).click();
-
+  driver.findElement(By.className('up-vote')).click();
 
   driver.sleep(3000).then(function() {
     driver.findElement(By.className('current-quality')).getText().then(function(title) {
-      if(title === 'plausible') {
+      if(title === 'high') {
         console.log('Test Passed');
       } else {
         console.log('Test Failed');
@@ -37,7 +36,7 @@ function searchTest(driver) {
 	driver.sleep(3000).then(function(){
 		driver.findElement(By.className('up-vote')).click();
 		driver.findElement(By.className('current-quality')).getText().then(function(title) {
-      if(title === 'genius') {
+      if(title === 'critical') {
         console.log('Test Passed');
       } else {
         console.log('Test Failed');
@@ -48,7 +47,7 @@ function searchTest(driver) {
 	driver.sleep(3000).then(function(){
 		driver.findElement(By.className('up-vote')).click();
 		driver.findElement(By.className('current-quality')).getText().then(function(title) {
-			if(title === 'genius') {
+			if(title === 'critical') {
 				console.log('Test Passed');
 			} else {
 				console.log('Test Failed');
