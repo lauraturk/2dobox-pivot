@@ -1,9 +1,4 @@
 ### IdeaBox
-<<<<<<< HEAD
-# dd-comp-challenge-2
-=======
-
-### IdeaBox
 
 this is a test to see if anything....
 ## Selenium testing breakdown

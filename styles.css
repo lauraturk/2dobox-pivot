@@ -12,6 +12,7 @@ header {
   margin top: 0px;
 }
 
+
 .top-box {
   display: flex;
   flex-wrap: wrap;
@@ -97,6 +98,15 @@ input {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
+  background-color: #FFFFFF;
+}
+
+.completed {
+  background-color: grey;
+}
+
+.hidden {
+  display: none;
 }
 
 .card-title-box {

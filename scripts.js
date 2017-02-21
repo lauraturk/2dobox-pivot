@@ -6,6 +6,7 @@ function IdeaObj(id, ideaTitle, ideaBody) {
   this.title = ideaTitle;
   this.body = ideaBody;
   this.quality = 'swill';
+  this.completed = false;
 }
 
 function newIdea(idea) {
@@ -20,9 +21,20 @@ function newIdea(idea) {
       <button class="quality-btns up-vote"><img class="quality-image" src="./images/upvote.svg" alt="upvote button"></button>
       <button class="quality-btns down-vote"><img class="quality-image" src="./images/downvote.svg" alt="downvote button"></button>
       <h3 class="quality-result">Quality: <h4 class="current-quality">${idea.quality}</h4></h3>
+      <button class="completed-task">Completed</button>
     </article>
   </section>`);
 }
+
+$('.idea-card-container').on('click', '.completed-task', function (){
+  $(this).closest('.idea-card').addClass('completed hidden');
+  var id = $(this).parents('.idea-card').attr('id');
+  var completedValue = JSON.parse(localStorage.getItem(id));
+  completedValue.completed = true;
+  localStorage.setItem(id, JSON.stringify(completedValue));
+})
+
+
 
 function prependIdeas() {
   var id = $.now();
@@ -40,7 +52,13 @@ function setIdea(id, idea) {
 function getIdeas() {
   $('.idea-card').remove();
   for (var i in localStorage) {
-    newIdea(JSON.parse(localStorage[i]));
+    var idea = JSON.parse(localStorage[i]);
+    var id = $(idea).prop('completed');
+    if (id === true) {
+    $('.idea-card').closest(id).addClass('completed');
+    } else {
+      newIdea(idea);
+    }
   }
 }
 
