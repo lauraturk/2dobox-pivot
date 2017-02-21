@@ -24,7 +24,7 @@ function searchTest(driver) {
 
   driver.sleep(3000).then(function() {
     driver.findElement(By.className('current-quality')).getText().then(function(title) {
-      if(title === 'swill') {
+      if(title === 'normal') {
         console.log('Test Passed');
       } else {
         console.log('Test Failed');

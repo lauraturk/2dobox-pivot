@@ -18,14 +18,23 @@ searchTest(driver_fx);
 
 function searchTest(driver) {
   driver.get('file:///Users/lauraturk/Turing/2dobox-pivot/index.html');
+  driver.findElement(By.className('idea-title')).sendKeys('Critical Title');
+  driver.findElement(By.className('idea-body')).sendKeys('Critical Body');
+  driver.findElement(By.className('save-button')).click();
+  driver.findElement(By.className('up-vote')).click();
+  driver.findElement(By.className('up-vote')).click();
   driver.findElement(By.className('idea-title')).sendKeys('Testing Title');
   driver.findElement(By.className('idea-body')).sendKeys('Testing Body');
   driver.findElement(By.className('save-button')).click();
-	driver.navigate().refresh();
+  driver.findElement(By.className('up-vote')).click();
+  driver.findElement(By.className('idea-title')).sendKeys('Testing Title');
+  driver.findElement(By.className('idea-body')).sendKeys('Testing Body');
+  driver.findElement(By.className('save-button')).click();
+  driver.findElement(By.className('critical')).click();
 
   driver.sleep(3000).then(function() {
     driver.findElement(By.className('card-title')).getText().then(function(title) {
-      if(title === 'Testing Title') {
+      if(title === 'Critical Title') {
         console.log('Test Passed');
       } else {
         console.log('Test Failed');
@@ -33,29 +42,5 @@ function searchTest(driver) {
     });
   });
 
-  driver.sleep(3000).then(function(){
-    driver.findElement(By.className('up-vote')).click();
-    driver.navigate().refresh();
-    driver.findElement(By.className('current-quality')).getText().then(function(title) {
-      if(title === 'high') {
-        console.log('Test Passed');
-      } else {
-        console.log('Test Failed');
-      }
-    });
-  });
-
-  driver.sleep(3000).then(function(){
-    driver.findElement(By.className('down-vote')).click();
-    driver.navigate().refresh();
-    driver.findElement(By.className('current-quality')).getText().then(function(title) {
-      if(title === 'low') {
-        console.log('Test Passed');
-      } else {
-        console.log('Test Failed');
-      }
-    });
-  });
-
-    driver.quit();
+		driver.quit();
   }
