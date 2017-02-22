@@ -27,7 +27,7 @@ function newToDo(toDo) {
     <article class="importance-box">
     <button class="importance-btns up-vote"><img class="importance-image" src="./images/upvote.svg" alt="upvote button"></button>
     <button class="importance-btns down-vote"><img class="importance-image" src="./images/downvote.svg" alt="downvote button"></button>
-    <h3 class="importance-result">Importance: <h4 class="current-importance">${toDo.importance}</h4></h3>
+    <h3 class="importance-result">importance: <h4 class="current-importance">${toDo.importance}</h4></h3>
     <button class="completed-task">Completed</button>
     </article>
     </section>`);
@@ -194,26 +194,21 @@ function importanceMatch(importance){
 }
 
 $('#critical-button').on('click', function(){
-  $(this).toggleClass('button-active');
   importanceMatch('critical');
 });
 
 $('#high-button').on('click', function(){
-  $(this).toggleClass('button-active');
   importanceMatch('high');
 });
 
 $('#normal-button').on('click', function(){
-  $(this).toggleClass('button-active');
   importanceMatch('normal');
 });
 
 $('#low-button').on('click', function(){
-  $(this).toggleClass('button-active');
   importanceMatch('low');
 });
 
 $('#none-button').on('click', function(){
-  $(this).toggleClass('button-active');
   importanceMatch('none');
 });
