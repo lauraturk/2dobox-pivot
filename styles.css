@@ -1,3 +1,7 @@
+.button-active {
+  background-color: red;
+}
+
 body {
   width: 100%;
   box-sizing: border-box;
@@ -26,7 +30,7 @@ h1 {
   margin: 0px;
 }
 
-.title-idea {
+.title-toDo {
   color: #00A79D;
   font-family: 'Roboto Slab', serif;
   font-size: 34px;
@@ -58,7 +62,7 @@ input {
   font-family: 'Open Sans', sans-serif;
 }
 
-.idea-body {
+.toDo-body {
   height: 20vh;
 }
 
@@ -82,7 +86,7 @@ input {
   width: 100vw;
 }
 
-.idea-card-container {
+.toDo-card-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,7 +96,7 @@ input {
   width: 90%;
 }
 
-.idea-card {
+.toDo-card {
   border-bottom: 1px solid #D1D3D4;
   height: 120%;
   margin-left: auto;
@@ -126,25 +130,25 @@ input {
   width: 100%;
 }
 
-.quality-box {
+.importance-box {
   display: flex;
   align-items: baseline;
 }
 
-.quality-result {
+.importance-result {
   font-size: 15pt;
   padding-top: 17px;
 }
 
-.quality-image {
+.importance-image {
   height: 35px;
 }
 
-.quality-result {
+.importance-result {
   display: flex;
 }
 
-.quality-btns, .delete-btn {
+.importance-btns, .delete-btn {
   background: transparent;
   border: none;
 }
@@ -159,7 +163,7 @@ input {
     width: 70vw;
   }
 
-  .idea-card {
+  .toDo-card {
     width: 70vw;
   }
 
@@ -171,7 +175,7 @@ input {
     height: 7vh;
   }
 
-  .title-idea {
+  .title-toDo {
     font-size: 64px;
   }
 
@@ -184,7 +188,7 @@ input {
     margin-top: 15px;
   }
 
-  .idea-body {
+  .toDo-body {
     height: 5vh;
   }
 
