@@ -1,11 +1,14 @@
 getIdeas();
 toggleSaveButton();
 
+var importance = ['none', 'low', 'normal', 'high', 'critical'];
+var counter = 2;
+
 function IdeaObj(id, ideaTitle, ideaBody) {
   this.id = id;
   this.title = ideaTitle;
   this.body = ideaBody;
-  this.quality = 'swill';
+  this.importance = importance[2];
   this.completedClass;
 }
 
@@ -20,7 +23,7 @@ function newIdea(idea) {
     <article class="quality-box">
       <button class="quality-btns up-vote"><img class="quality-image" src="./images/upvote.svg" alt="upvote button"></button>
       <button class="quality-btns down-vote"><img class="quality-image" src="./images/downvote.svg" alt="downvote button"></button>
-      <h3 class="quality-result">Quality: <h4 class="current-quality">${idea.quality}</h4></h3>
+      <h3 class="quality-result">Importance: <h4 class="current-quality">${idea.importance}</h4></h3>
       <button class="completed-task">Completed</button>
     </article>
   </section>`);
@@ -58,6 +61,12 @@ function getIdeas() {
     var idea = JSON.parse(localStorage[i]);
     newIdea(idea);
   }
+    if ($('.idea-card-container').children().length > 10) {
+      for (var i = 10; i < $('.idea-card-container').children().length; i++) {
+        var todos = $('.idea-card-container').children()[i];
+        
+    }
+  }
 }
 
 $('.save-button').click(function() {
@@ -76,19 +85,21 @@ $('.idea-card-container').on('click', '.delete-btn', function() {
 function changeQuality(button, quality) {
   var changeQuality = $(button).parents('.idea-card').attr('id');
   var changeThisQuality = JSON.parse(localStorage.getItem(changeQuality));
-  changeThisQuality.quality = quality.text();
+  changeThisQuality.importance = quality.text();
   localStorage.setItem(changeQuality, JSON.stringify(changeThisQuality));
 }
 
 $('.idea-card-container').on('click', '.down-vote', function() {
   var newQual = $(this).siblings('.current-quality');
-  newQual.text() === 'genius' ? newQual.text('plausible') : newQual.text('swill');
+  counter--;
+  newQual.text(importance[counter]);
   changeQuality(this, newQual);
 });
 
 $('.idea-card-container').on('click', '.up-vote', function() {
   var newQual = $(this).siblings('.current-quality');
-  newQual.text() === 'swill' ? newQual.text('plausible') : newQual.text('genius');
+  counter++;
+  newQual.text(importance[counter]);
   changeQuality(this, newQual);
 });
 
