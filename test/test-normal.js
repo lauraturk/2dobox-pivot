@@ -29,7 +29,7 @@ function searchTest(driver) {
   driver.findElement(By.className('toDo-body')).sendKeys('Testing Body');
   driver.findElement(By.className('save-button')).click();
   driver.findElement(By.className('up-vote')).click();
-  driver.findElement(By.className('normal')).click();
+  driver.findElement(By.id('normal-button')).click();
 
   driver.sleep(3000).then(function() {
     driver.findElement(By.className('card-title')).getText().then(function(title) {
