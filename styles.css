@@ -1,9 +1,9 @@
 button:disabled {
-  color: green;
+  background-color: #d1d3d4;
 }
 
 .button-active {
-  background-color: red;
+  background-color: #00A79D;
 }
 
 body {
@@ -70,17 +70,29 @@ input {
   height: 20vh;
 }
 
-.save-button {
+.save-button, .show-completed {
+  background-color: #00A79D;
   border: none;
+  color: #FFFFFF;
   font-size: 25px;
   letter-spacing: 2px;
   width: 90vw;
+  height: 6vh;
 }
 
-.save-button {
-  background-color: #00A79D;
-  color: #FFFFFF;
-  height: 6vh;
+.show-completed {
+  margin: 10px auto;
+}
+
+.importance-filter {
+  border-style: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 5px 5px;
+}
+
+.importance-filters {
+  text-align: center;
 }
 
 .search-input {
