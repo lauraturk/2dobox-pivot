@@ -5,6 +5,7 @@ $(document).ready(function() {
   getToDos();
   showTen();
   toggleSaveButton();
+  toggleCompleted();
 });
 
 function ToDoObj(id, toDoTitle, toDoBody) {
@@ -160,6 +161,13 @@ $('.toDo-card-container').on('click', '.completed-task', function (){
   completedValue.completedClass = 'completed hidden';
   localStorage.setItem(id, JSON.stringify(completedValue));
 });
+
+function toggleCompleted() {
+  var completed = $('.toDo-card-container').children();
+  if (!completed.hasClass('hidden')) {
+    $('.show-completed').prop('disabled', true);
+  }
+}
 
 $('.show-completed').on('click', function (){
   $('.toDo-card-container').children('.hidden').removeClass('hidden');
