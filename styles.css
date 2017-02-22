@@ -1,10 +1,7 @@
 button:disabled {
-  color: green;
+  background-color: #d1d3d4;
 }
 
-.button-active {
-  background-color: red;
-}
 
 body {
   width: 100%;
@@ -70,17 +67,53 @@ input {
   height: 20vh;
 }
 
-.save-button {
+.save-button, .show-completed {
+  background-color: #00A79D;
   border: none;
+  color: #FFFFFF;
   font-size: 25px;
   letter-spacing: 2px;
   width: 90vw;
+  height: 6vh;
 }
 
-.save-button {
-  background-color: #00A79D;
-  color: #FFFFFF;
-  height: 6vh;
+.show-completed {
+  margin: 10px auto;
+}
+
+#critical-button {
+  background-color: #E71910;
+}
+
+#high-button {
+  background-color: #Ec4c19;
+}
+
+#normal-button {
+  background-color: #f27f22;
+}
+
+#low-button {
+  background-color: #f7b12a;
+}
+
+#none-button {
+  background-color: #fce433;
+}
+
+.button-active {
+  border: 2px solid #00A79D;
+}
+.importance-filter {
+  border-style: none;
+  color: #000000;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 5px 5px;
+}
+
+.importance-filters {
+  text-align: center;
 }
 
 .search-input {
@@ -110,7 +143,7 @@ input {
 }
 
 .completed {
-  background-color: grey;
+  background-color: #d1d3d4;
 }
 
 .hidden {
@@ -140,8 +173,12 @@ input {
 }
 
 .importance-result {
-  font-size: 15pt;
+  font-size: 10pt;
   padding-top: 17px;
+}
+
+.current-importance {
+  font-size: 10pt;
 }
 
 .importance-image {
@@ -155,6 +192,10 @@ input {
 .importance-btns, .delete-btn {
   background: transparent;
   border: none;
+}
+
+.completed-task{
+  display: block;
 }
 
 @media screen and (min-width: 650px){
