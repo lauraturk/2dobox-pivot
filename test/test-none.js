@@ -18,17 +18,17 @@ searchTest(driver_fx);
 
 function searchTest(driver) {
   driver.get('file:///Users/lauraturk/Turing/2dobox-pivot/index.html');
-  driver.findElement(By.className('idea-title')).sendKeys('None Title');
-  driver.findElement(By.className('idea-body')).sendKeys('None Body');
+  driver.findElement(By.className('toDo-title')).sendKeys('None Title');
+  driver.findElement(By.className('toDo-body')).sendKeys('None Body');
   driver.findElement(By.className('save-button')).click();
   driver.findElement(By.className('down-vote')).click();
   driver.findElement(By.className('down-vote')).click();
-  driver.findElement(By.className('idea-title')).sendKeys('Testing Title');
-  driver.findElement(By.className('idea-body')).sendKeys('Testing Body');
+  driver.findElement(By.className('toDo-title')).sendKeys('Testing Title');
+  driver.findElement(By.className('toDo-body')).sendKeys('Testing Body');
   driver.findElement(By.className('save-button')).click();
   driver.findElement(By.className('up-vote')).click();
-  driver.findElement(By.className('idea-title')).sendKeys('Testing Title');
-  driver.findElement(By.className('idea-body')).sendKeys('Testing Body');
+  driver.findElement(By.className('toDo-title')).sendKeys('Testing Title');
+  driver.findElement(By.className('toDo-body')).sendKeys('Testing Body');
   driver.findElement(By.className('save-button')).click();
   driver.findElement(By.className('none')).click();
 
