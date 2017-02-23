@@ -21,15 +21,15 @@ function newToDo(toDo) {
     `<section class="toDo-card ${toDo.completedClass}" id="${toDo.id}">
     <article class="card-title-box">
     <h1 class="card-title" contenteditable="true">${toDo.title}</h1>
-    <button class="delete-btn"><img class="importance-image" src="./images/delete.svg" alt="delete button"></img></button>
+    <button class="delete-btn importance-image"></button>
     </article>
     <p class="card-body" contenteditable="true">${toDo.body}</p>
     <article class="importance-box">
-    <button class="importance-btns up-vote"><img class="importance-image" src="./images/upvote.svg" alt="upvote button"></button>
-    <button class="importance-btns down-vote"><img class="importance-image" src="./images/downvote.svg" alt="downvote button"></button>
+    <button class="importance-btns up-vote importance-image"></button>
+    <button class="importance-btns down-vote importance-image"></button>
     <h3 class="importance-result">importance: <h4 class="current-importance">${toDo.importance}</h4></h3>
-    <button class="completed-task">Completed</button>
     </article>
+    <button class="completed-task" id="nos">hide complete</button>
     </section>`);
   }
 
@@ -131,6 +131,7 @@ $('.toDo-card-container').on('click', '.delete-btn', function() {
   $(this).parents().remove('.toDo-card');
   var id = $(this).parents('.toDo-card').attr('id');
   localStorage.removeItem(id);
+  toggleCompleted();
 });
 
 function changeimportance(button, importance) {
@@ -156,6 +157,7 @@ $('.toDo-card-container').on('click', '.up-vote', function() {
 
 $('.toDo-card-container').on('click', '.completed-task', function (){
   $(this).closest('.toDo-card').addClass('completed hidden');
+  toggleCompleted();
   var id = $(this).parents('.toDo-card').attr('id');
   var completedValue = JSON.parse(localStorage.getItem(id));
   completedValue.completedClass = 'completed hidden';
@@ -166,6 +168,8 @@ function toggleCompleted() {
   var completed = $('.toDo-card-container').children();
   if (!completed.hasClass('hidden')) {
     $('.show-completed').prop('disabled', true);
+  } else {
+    $('.show-completed').prop('disabled', false);
   }
 }
 
