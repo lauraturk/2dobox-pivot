@@ -190,9 +190,9 @@ function importanceMatch(importance){
     var newImportance = $(this).find('.current-importance').text();
     var match = newImportance.match(importance);
     if(!match){
-      $(this).toggle('hidden');
+      $(this).addClass('hidden');
     } else {
-      $(this).show();
+      $(this).removeClass('hidden');
     }
   });
 }
