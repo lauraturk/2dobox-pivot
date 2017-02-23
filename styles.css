@@ -23,8 +23,8 @@ input {
   width: 90%;
 }
 
-input:placeholder {
-  padding-left: 5px;
+input {
+  padding-left: 10px;
 }
 
 button:disabled {
@@ -41,7 +41,7 @@ button:disabled {
   flex-wrap: wrap;
   height: 60vh;
   margin: 0px;
-  width: 100vw;
+  width: 100%;
 }
 
 .title-toDo {
@@ -70,10 +70,9 @@ button:disabled {
 }
 
 .search-input {
-  margin-bottom: 30px;
-  margin-top: 30px;
+  margin: 30px auto;
   text-align: center;
-  width: 100%;
+  width: 98%;
 }
 
 .save-button, .show-completed {
@@ -94,7 +93,7 @@ button:disabled {
   border-style: none;
   color: #000000;
   cursor: pointer;
-  margin: 5px 5px;
+  margin: 15px 5px;
   text-decoration: none;
 }
 
@@ -174,12 +173,12 @@ button:disabled {
 }
 
 .importance-result {
-  font-size: 10pt;
-  padding-left: 5px;
+  font-size: 12pt;
+  padding-left: 15px;
 }
 
 .current-importance {
-  font-size: 10pt;
+  font-size: 12pt;
   padding-left: 5px;
 }
 
@@ -200,9 +199,10 @@ button:disabled {
   background-color: #E5F3F2;
   border-style: none;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   text-decoration: none;
-  width: 100%
+  width: 100%;
+  height: 30px;
 }
 
 .delete-btn {
@@ -219,6 +219,7 @@ button:disabled {
   background-image: url("./images/upvote.svg");
   width: 35px;
   height: 35px;
+  margin-right: 10px;
 }
 
 .up-vote:hover {
@@ -238,29 +239,60 @@ button:disabled {
 .show-more-items {
   border-style: none;
   color: #FFFFFF;
-  margin: 10px auto;
+  margin: 15px auto;
   text-decoration: none;
   width: 50%;
+  height: 36px;
 }
 
 @media screen and (min-width: 650px){
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title-toDo, .title-box {
+    font-size: 44px;
+  }
 
   input {
     width: 70%;
   }
 
+  .input-field {
+    margin: 15px auto;
+  }
+
   .save-button {
     width: 70%;
+    height: 40px;
   }
 
   .toDo-card {
     width: 70%;
   }
 
+  .show-completed {
+    width: 100%;
+    height: 40px;
+  }
+
+  .importance-filters {
+    width: 71%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .importance-filter {
+    margin: 15px 15px;
+  }
+
 }
 
 @media screen and (min-width: 850px) {
-
   header {
     height: 7vh;
   }
@@ -276,6 +308,7 @@ button:disabled {
 
   .save-button {
     margin-top: 15px;
+    width: 72%;
   }
 
   .toDo-body {
@@ -284,10 +317,44 @@ button:disabled {
 
   .input-field {
     height: 30vh;
-    margin-bottom: 0px;
+    margin: 30px auto;
   }
 
   .top-box {
-    height: 45vh;
+    height: 50vh;
+  }
+
+  .importance-filters {
+    width: 58%;
+  }
+
+  .search-input {
+    width: 81%;
+  }
+
+  .toDo-card {
+    width: 58%;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .search-input {
+    width: 54%;
+  }
+
+  .importance-filters {
+    width: 39%;
+  }
+
+  .toDo-card {
+    width: 40%;
+  }
+
+  .show-more-items {
+    width: 40%;
+  }
+
+  .completed-task {
+    height: 36px;
   }
 }
